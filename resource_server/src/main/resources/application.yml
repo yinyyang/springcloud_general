@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: resource-server
+server:
+  port: 9040
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka
