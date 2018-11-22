@@ -56,12 +56,12 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-//        clients.jdbc(datasource);
-        clients.inMemory()
-                .withClient("browser")
-                .secret("{noop}123456")
-                .authorizedGrantTypes("refresh_token","password","client_credentials")
-                .scopes("ui");
+         clients.jdbc( datasource);
+//        clients.inMemory()
+//                .withClient("clientId")
+//                .secret("{noop}123456")
+//                .authorizedGrantTypes("refresh_token","password","client_credentials")
+//                .scopes("ui");
     }
 
     @Override
@@ -70,8 +70,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         endpoints.tokenStore(jwtTokenStore())
                 .accessTokenConverter(jwtAccessTokenConverter())
                 .reuseRefreshTokens(true)
-                .authenticationManager(authenticationManager)
-                .userDetailsService(userDetailsService);
+               .authenticationManager(authenticationManager)
+               .userDetailsService(userDetailsService);
     }
 
 

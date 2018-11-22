@@ -1,6 +1,7 @@
 package com.springcloud.auth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -8,21 +9,19 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Service
-public class AuthUserDetailsService extends JdbcUserDetailsManager {
+public class AuthUserDetailsService extends JdbcUserDetailsManager implements UserDetailsService   {
 
-    @Autowired
-    private JdbcUserDetailsManager jdbcUserDetailsManager;
 
-    @Autowired
-    private DataSource datasource;
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserDetails userDetails = jdbcUserDetailsManager.loadUserByUsername(username);
+        UserDetails userDetails = super.loadUserByUsername(username);
 
         if (userDetails == null) {
             throw new UsernameNotFoundException(username);
@@ -31,9 +30,9 @@ public class AuthUserDetailsService extends JdbcUserDetailsManager {
         return userDetails;
     }
 
-    @Autowired
-    public void setDatasource(DataSource datasource) {
-        super.setDataSource(this.datasource);
+    @Resource
+    public void setJb(JdbcTemplate jb) {
+        super.setJdbcTemplate(jb);
     }
 }
 

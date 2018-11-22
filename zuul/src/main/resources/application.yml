@@ -8,25 +8,27 @@ zuul:
   ignored-services: "*"
   prefix: "/api"
   routes:
-    users:
-      path: /auth/**
-      serviceId: auth
+    api-auth:
+      path: /auth_server/**
+      serviceId: auth-server
+    api-resource:
+      path: /resource_server/**
+      serviceId: resource-server
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:9000/eureka
-
 security:
   oauth2:
+    sso:
+      login-path: /login
     client:
-      clientId: client
-      clientSecret: client-secret
+      access-token-uri: http://localhost:9030/auth/oauth/token
+      user-authorization-uri: http://localhost:9030/auth/oauth/authorize
+      client-id: client
+      client-secret: secret
     resource:
       id: resource
-      token-info-uri: http://localhost:9020/oauth/check_token
-      user-info-uri: http://localhost:9030/resource/user
-      prefer-token-info: true
-      jwt:
-        key-uri: http://localhost:9020/oauth/token_key
-
+      service-id: resource-server
+      user-info-uri: http://localhost:9030/auth/user

@@ -3,8 +3,20 @@ spring:
     name: resource-server
 server:
   port: 9040
+  servlet:
+    session:
+      cookie:
+        name: RESOURCE_SESSIONID
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:9000/eureka
+
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://localhost:9010/api/auth_server/user
+#      prefer-token-info: false
+#      id: resource
+#      service-id: resource-server
