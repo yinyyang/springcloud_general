@@ -1,6 +1,8 @@
 spring:
   application:
     name: resource-server
+  aop:
+    proxy-target-class: true
 server:
   port: 9040
   servlet:
@@ -14,14 +16,15 @@ eureka:
       defaultZone: http://localhost:9000/eureka
 
 security:
-#  oauth2:
-#    client:
-#      client-id: web_app
-#      client-secret: 111111
-#      access-token-uri: http://localhost:9030/auth/oauth/token
-#      scope: all
+  oauth2:
+    client:
+      client-id: web_app
+      client-secret: 111111
+      access-token-uri: http://localhost:9030/oauth/token
+      grant-type: client_credentials
+      scope: all
+      user-authorization-uri: http://localhost:9030/oauth/authorize
     resource:
-      user-info-uri: http://localhost:9030/auth/user
-      prefer-token-info: false
+      user-info-uri: http://localhost:9030/user
       id: web_app
       service-id: resource-server
