@@ -15,7 +15,7 @@ public class AuthApplicationTests {
 
     @Test
     public void testPass() {
-        String pass = "123456";
+        String pass = "111111";
         BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
         String hashPass = encode.encode(pass);
         System.out.println(hashPass);

@@ -25,13 +25,3 @@ public class AuthApplication {
 
 }
 
-@Controller
-class TestController{
-
-    @RequestMapping("test")
-    @ResponseBody
-    public  String  test(){
-        return "basic auth successful!";
-    }
-
-}

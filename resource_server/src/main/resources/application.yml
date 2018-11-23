@@ -13,10 +13,15 @@ eureka:
     service-url:
       defaultZone: http://localhost:9000/eureka
 
-#security:
+security:
 #  oauth2:
-#    resource:
-#      user-info-uri: http://localhost:9010/api/auth_server/user
-#      prefer-token-info: false
-#      id: resource
-#      service-id: resource-server
+#    client:
+#      client-id: web_app
+#      client-secret: 111111
+#      access-token-uri: http://localhost:9030/auth/oauth/token
+#      scope: all
+    resource:
+      user-info-uri: http://localhost:9030/auth/user
+      prefer-token-info: false
+      id: web_app
+      service-id: resource-server

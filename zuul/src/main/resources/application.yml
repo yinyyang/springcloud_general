@@ -9,26 +9,25 @@ zuul:
   prefix: "/api"
   routes:
     api-auth:
-      path: /auth_server/**
+      path: /auth/**
       serviceId: auth-server
     api-resource:
       path: /resource_server/**
       serviceId: resource-server
-
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:9000/eureka
-security:
-  oauth2:
-    sso:
-      login-path: /login
-    client:
-      access-token-uri: http://localhost:9030/auth/oauth/token
-      user-authorization-uri: http://localhost:9030/auth/oauth/authorize
-      client-id: client
-      client-secret: secret
-    resource:
-      id: resource
-      service-id: resource-server
-      user-info-uri: http://localhost:9030/auth/user
+#security:
+#  oauth2:
+#    sso:
+#      login-path: /login
+#    client:
+#      access-token-uri: http://localhost:9030/auth/oauth/token
+#      user-authorization-uri: http://localhost:9030/auth/oauth/authorize
+#      client-id: client
+#      client-secret: secret
+#    resource:
+#      id: resource
+#      service-id: resource-server
+#      user-info-uri: http://localhost:9030/auth/user

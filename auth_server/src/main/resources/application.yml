@@ -9,7 +9,6 @@ spring:
 server:
   port: 9030
   servlet:
-    context-path: /auth
     session:
       cookie:
         name: AUTH_SESSIONID

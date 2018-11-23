@@ -38,6 +38,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private DataSource datasource;
 
+
+
     @Autowired
     private  AuthUserDetailsService userDetailsService;
 
@@ -56,7 +58,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-         clients.jdbc( datasource);
+         clients.jdbc(datasource);
 //        clients.inMemory()
 //                .withClient("clientId")
 //                .secret("{noop}123456")
