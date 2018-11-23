@@ -1,0 +1,1 @@
+INSERT INTO `oauth_client_details` VALUES ('web_app', 'web_app', '$2a$10$YJH.FielPcLgWnSQcYN/3OrGF989wdfnM1nH7rMWEovRiWihqbg3q', 'all', 'client_credentials,password', 'www.baidu.com', NULL, 72000, 72000, NULL, NULL);
