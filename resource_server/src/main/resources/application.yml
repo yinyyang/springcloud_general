@@ -4,7 +4,7 @@ spring:
   aop:
     proxy-target-class: true
 server:
-  port: 9040
+  port: 9050
   servlet:
     session:
       cookie:
@@ -13,4 +13,4 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:9000/eureka
+      defaultZone: http://192.168.1.102:9000/eureka

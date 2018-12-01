@@ -1,33 +1,31 @@
 spring:
   application:
     name: zuul
-
+  main:
+    allow-bean-definition-overriding: true
 server:
   port: 9010
 zuul:
   ignored-services: "*"
-  prefix: "/api"
   routes:
-    api-auth:
+    auth-server:
+#      url: "http://localhost:9030"
       path: /auth/**
       serviceId: auth-server
-    api-resource:
-      path: /resource_server/**
+    resource-server:
+      path: /resource/**
       serviceId: resource-server
+  #url 映射host超时配置生效
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 10000
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:9000/eureka
-#security:
-#  oauth2:
-#    sso:
-#      login-path: /login
-#    client:
-#      access-token-uri: http://localhost:9030/auth/oauth/token
-#      user-authorization-uri: http://localhost:9030/auth/oauth/authorize
-#      client-id: client
-#      client-secret: secret
-#    resource:
-#      id: resource
-#      service-id: resource-server
-#      user-info-uri: http://localhost:9030/auth/user
+#serviceId ribbon配置生效
+ribbon:
+  ReadTimeout: 10000
+  SocketTimeout: 10000
+
+

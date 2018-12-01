@@ -74,7 +74,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         //TokenEnhancerChain对 resource 应用很重要，用于解码用户信息
         TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
-        enhancerChain.setTokenEnhancers(Arrays.asList(jwtAccessTokenConverter()));
+        enhancerChain.setTokenEnhancers(Arrays.<TokenEnhancer>asList(jwtAccessTokenConverter()));
         endpoints.tokenStore(jwtTokenStore())
                 .accessTokenConverter(jwtAccessTokenConverter())
                 .tokenEnhancer(enhancerChain)
