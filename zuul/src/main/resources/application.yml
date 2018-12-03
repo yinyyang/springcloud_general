@@ -21,11 +21,15 @@ zuul:
     socket-timeout-millis: 10000
 eureka:
   client:
+    fetch-registry: true
+    register-with-eureka: true
     service-url:
       defaultZone: http://localhost:9000/eureka
+
 #serviceId ribbon配置生效
 ribbon:
   ReadTimeout: 10000
   SocketTimeout: 10000
-
+  eureka:
+    enabled: true
 
