@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloud.rcba.mapper.group.TGroupMapper">
+
+    <!-- general query mapping result -->
+    <resultMap id="BaseResultMap" type="com.springcloud.rcba.model.group.TGroup">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+    </resultMap>
+
+    <!--  common query result column -->
+    <sql id="Base_Column_List">
+        id, code, name
+    </sql>
+
+</mapper>

@@ -77,7 +77,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         enhancerChain.setTokenEnhancers(Arrays.<TokenEnhancer>asList(jwtAccessTokenConverter()));
         endpoints.tokenStore(jwtTokenStore())
                 .accessTokenConverter(jwtAccessTokenConverter())
-                .tokenEnhancer(enhancerChain)
+//                .tokenEnhancer(enhancerChain)
                 .reuseRefreshTokens(true)
                .authenticationManager(authenticationManager)
                .userDetailsService(userDetailsService);

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloud.rcba.mapper.user.TUserMapper">
+
+    <!-- general query mapping result -->
+    <resultMap id="BaseResultMap" type="com.springcloud.rcba.model.user.TUser">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="email" property="email" />
+        <result column="is_expired" property="isExpired" />
+        <result column="is_locked" property="isLocked" />
+        <result column="is_enabled" property="isEnabled" />
+        <result column="create_time" property="createTime" />
+        <result column="create_user" property="createUser" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_user" property="updateUser" />
+    </resultMap>
+
+    <!--  common query result column -->
+    <sql id="Base_Column_List">
+        id, username, password, email, is_expired, is_locked, is_enabled, create_time, create_user, update_time, update_user
+    </sql>
+    <select id="loadCustomUserDetailsByUsername"
+            resultType="com.springcloud.rcba.model.user.CustomUserDetails">
+
+        select
+
+    </select>
+
+</mapper>

@@ -9,7 +9,7 @@ import java.security.Principal;
 public class OrderControlller {
 
     @RequestMapping("order")
-    public String order(Principal principal){
-        return "order:"+principal;
+    public String order(Principal principal) {
+        return "order:" + principal;
     }
 }

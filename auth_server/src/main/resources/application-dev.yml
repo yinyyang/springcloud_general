@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auth?useUnicode=true&characterEncoding=utf8
+    username: auth
+    password: auth,.
+server:
+  port: 9030
+  servlet:
+    session:
+      cookie:
+        name: AUTH_SESSIONID
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka
+    fetch-registry: true
+    register-with-eureka: true
+#security:
+#  oauth2:
+#    resource:
+#      filter-order: 3

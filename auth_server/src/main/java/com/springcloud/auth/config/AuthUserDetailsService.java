@@ -13,9 +13,7 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Service
-public class AuthUserDetailsService extends JdbcUserDetailsManager implements UserDetailsService   {
-
-
+public class AuthUserDetailsService extends JdbcUserDetailsManager implements UserDetailsService {
 
 
     @Override

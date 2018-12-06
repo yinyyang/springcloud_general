@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.SecurityMetadataSource;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
 import org.springframework.security.access.intercept.InterceptorStatusToken;
+import org.springframework.security.jwt.Jwt;
+import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.stereotype.Service;
@@ -11,14 +13,15 @@ import org.springframework.stereotype.Service;
 import javax.servlet.*;
 import java.io.IOException;
 
+
 @Service
 public class CustomFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
 
     @Autowired
-    private CustomInvocationSecurityMetadataSource securityMetadataSource;
+    private FilterInvocationSecurityMetadataSource securityMetadataSource;
 
     @Autowired
-    public void setMyAccessDecisionManager(CustomAccessDecisionManager customAccessDecisionManager) {
+    public void setCustomAccessDecisionManager(CustomAccessDecisionManager customAccessDecisionManager) {
         super.setAccessDecisionManager(customAccessDecisionManager);
     }
 

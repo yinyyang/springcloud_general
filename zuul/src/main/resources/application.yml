@@ -5,6 +5,10 @@ spring:
     allow-bean-definition-overriding: true
 server:
   port: 9010
+  servlet:
+    session:
+      cookie:
+        name: ZUUL_SESSIONID
 zuul:
   ignored-services: "*"
   routes:
@@ -19,6 +23,7 @@ zuul:
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 10000
+  sensitive-headers: Cookie,Set-Cookie
 eureka:
   client:
     fetch-registry: true
@@ -32,4 +37,18 @@ ribbon:
   SocketTimeout: 10000
   eureka:
     enabled: true
-
+#proxy:
+#  auth:
+#    routes:
+#      customers: auth-server
+#      stres: test
+#      recommendations: none
+#security:
+#  oauth2:
+#    sso:
+#      login-path: http://localhost:9030/login
+#    client:
+#      access-token-uri: http://localhost:9010/auth/oauth/token
+#      user-authorization-uri: http://localhost:9010/auth/oauth/authorize
+#    resource:
+#      user-info-uri: http://localhost:9010/auth/user
