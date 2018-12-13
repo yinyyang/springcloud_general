@@ -29,7 +29,7 @@ public class RcbaFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-        System.out.print("--------rcba filter url:"+ request.getRequestURI()+"-----------");
+        System.out.print("--------rcba filter url:" + request.getRequestURI() + "-----------");
 
         return null;
     }

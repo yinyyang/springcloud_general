@@ -9,7 +9,7 @@ import java.util.List;
 public class PermissionService {
 
 
-    public List<Permission> findAll(){
+    public List<Permission> findAll() {
 
         List<Permission> list = new ArrayList<>();
         Permission p = new Permission();

@@ -13,12 +13,15 @@ zuul:
   ignored-services: "*"
   routes:
     auth-server:
-#      url: "http://localhost:9030"
+      #      url: "http://localhost:9030"
       path: /auth/**
       serviceId: auth-server
     resource-server:
       path: /resource/**
       serviceId: resource-server
+    rcba:
+      path: /rcba/**
+      serviceId: rcba
   #url 映射host超时配置生效
   host:
     connect-timeout-millis: 10000
