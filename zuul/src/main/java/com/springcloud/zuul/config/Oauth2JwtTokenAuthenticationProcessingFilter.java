@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -21,25 +23,28 @@ import java.util.Map;
 public class Oauth2JwtTokenAuthenticationProcessingFilter extends OncePerRequestFilter {
     private UserServiceImpl  userService;
 
-    @Override
-    protected void initFilterBean() throws ServletException{
 
-        ServletContext sc = this.getServletContext();
-        XmlWebApplicationContext cxt = (XmlWebApplicationContext) WebApplicationContextUtils.getWebApplicationContext(sc);
-
-        if(cxt != null && cxt.getBean("userServiceImpl") != null && userService == null)
-            userService = (UserServiceImpl) cxt.getBean("userServiceImpl");
-    }
+//    public void init(FilterConfig filterConfig) throws ServletException{
+//         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
+//                 filterConfig.getServletContext());
+//        ServletContext sc = this.getServletContext();
+//        XmlWebApplicationContext cxt = (XmlWebApplicationContext) WebApplicationContextUtils.getWebApplicationContext(sc);
+//
+//        if(cxt != null && cxt.getBean("userServiceImpl") != null && userService == null)
+//            userService = (UserServiceImpl) cxt.getBean("userServiceImpl");
+//    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
+        ServletContext sc = request.getServletContext();
+        WebApplicationContext webCtx = WebApplicationContextUtils.getWebApplicationContext(sc);
+        UserServiceImpl userService = (UserServiceImpl) webCtx.getBean("userServiceImpl");
         String token = request.getParameter("access_token");
         if (token != null) {
             Jwt jwt = JwtHelper.decode(token);
             Map mapTypes = JSON.parseObject(jwt.getClaims());
-            String username = mapTypes.get("user_name").toString();;
-            UserDetails userDetails = userService.loadUserByUsername(username);
+            //String username = mapTypes.get("user_name").toString();;
+            UserDetails userDetails = userService.loadUserByUsername("test");
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authentication);

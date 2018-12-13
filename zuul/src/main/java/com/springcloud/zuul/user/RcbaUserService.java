@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient("rcba")
+@Service
 public interface RcbaUserService {
 
-    @RequestMapping(value = "/t-user/loadCustomUserDetailsByUsername", method = RequestMethod.POST)
+    @RequestMapping(value = "myservice", method = RequestMethod.POST)
     CustomUserDetails loadUserByUsername(String username);
 }
