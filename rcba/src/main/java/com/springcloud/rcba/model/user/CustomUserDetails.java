@@ -12,6 +12,7 @@ public class CustomUserDetails {
      * 权限代码列表
      */
     private List<String> authorities;
+
     public String getUsername() {
         return username;
     }

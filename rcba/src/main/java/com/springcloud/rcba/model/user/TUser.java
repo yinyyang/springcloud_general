@@ -2,9 +2,13 @@ package com.springcloud.rcba.model.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 
 
@@ -86,6 +90,7 @@ public class TUser implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getUsername() {
         return username;
     }
@@ -93,6 +98,7 @@ public class TUser implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
     public String getPassword() {
         return password;
     }
@@ -100,6 +106,7 @@ public class TUser implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getEmail() {
         return email;
     }
@@ -107,6 +114,7 @@ public class TUser implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public Integer getIsExpired() {
         return isExpired;
     }
@@ -114,6 +122,7 @@ public class TUser implements Serializable {
     public void setIsExpired(Integer isExpired) {
         this.isExpired = isExpired;
     }
+
     public Integer getIsLocked() {
         return isLocked;
     }
@@ -121,6 +130,7 @@ public class TUser implements Serializable {
     public void setIsLocked(Integer isLocked) {
         this.isLocked = isLocked;
     }
+
     public Integer getIsEnabled() {
         return isEnabled;
     }
@@ -128,6 +138,7 @@ public class TUser implements Serializable {
     public void setIsEnabled(Integer isEnabled) {
         this.isEnabled = isEnabled;
     }
+
     public LocalDateTime getCreateTime() {
         return createTime;
     }
@@ -135,6 +146,7 @@ public class TUser implements Serializable {
     public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
+
     public Long getCreateUser() {
         return createUser;
     }
@@ -142,6 +154,7 @@ public class TUser implements Serializable {
     public void setCreateUser(Long createUser) {
         this.createUser = createUser;
     }
+
     public LocalDateTime getUpdateTime() {
         return updateTime;
     }
@@ -149,6 +162,7 @@ public class TUser implements Serializable {
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
+
     public Long getUpdateUser() {
         return updateUser;
     }
@@ -160,17 +174,17 @@ public class TUser implements Serializable {
     @Override
     public String toString() {
         return "TUser{" +
-        "id=" + id +
-        ", username=" + username +
-        ", password=" + password +
-        ", email=" + email +
-        ", isExpired=" + isExpired +
-        ", isLocked=" + isLocked +
-        ", isEnabled=" + isEnabled +
-        ", createTime=" + createTime +
-        ", createUser=" + createUser +
-        ", updateTime=" + updateTime +
-        ", updateUser=" + updateUser +
-        "}";
+                "id=" + id +
+                ", username=" + username +
+                ", password=" + password +
+                ", email=" + email +
+                ", isExpired=" + isExpired +
+                ", isLocked=" + isLocked +
+                ", isEnabled=" + isEnabled +
+                ", createTime=" + createTime +
+                ", createUser=" + createUser +
+                ", updateTime=" + updateTime +
+                ", updateUser=" + updateUser +
+                "}";
     }
 }

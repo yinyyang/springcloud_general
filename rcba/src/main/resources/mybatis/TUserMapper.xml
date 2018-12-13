@@ -4,27 +4,37 @@
 
     <!-- general query mapping result -->
     <resultMap id="BaseResultMap" type="com.springcloud.rcba.model.user.TUser">
-        <id column="id" property="id" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="email" property="email" />
-        <result column="is_expired" property="isExpired" />
-        <result column="is_locked" property="isLocked" />
-        <result column="is_enabled" property="isEnabled" />
-        <result column="create_time" property="createTime" />
-        <result column="create_user" property="createUser" />
-        <result column="update_time" property="updateTime" />
-        <result column="update_user" property="updateUser" />
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="is_expired" property="isExpired"/>
+        <result column="is_locked" property="isLocked"/>
+        <result column="is_enabled" property="isEnabled"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_user" property="updateUser"/>
     </resultMap>
 
     <!--  common query result column -->
     <sql id="Base_Column_List">
-        id, username, password, email, is_expired, is_locked, is_enabled, create_time, create_user, update_time, update_user
+        id, username, password, email, is_expired, is_locked, is_enabled, create_time, create_user, update_time,
+        update_user
     </sql>
-    <select id="loadCustomUserDetailsByUsername"
-            resultType="com.springcloud.rcba.model.user.CustomUserDetails">
+    <select id="loadCustomUserDetailsByUsername" parameterType="string"
+            resultType="string">
 
-        select
+        select a.code from
+        (select p.code from t_user u,t_user_role ur,t_role r,t_role_permission rp,t_permission p,t_permission_resource
+        pres,t_resource res where u.id=ur.user_id and ur.role_id=r.id and r.id = rp.role_id and rp.permission_id=p.id
+        and p.id = pres.permission_id and pres.resource_id=res.id and u.username=#{username})
+        as a
+        ,
+        (select p.code from t_user u,t_user_group ug,t_group g,t_group_permission gp ,t_permission
+        p,t_permission_resource pres,t_resource res where u.id=ug.user_id and ug.group_id=g.id and g.id = gp.group_id
+        and gp.permission_id=p.id and p.id = pres.permission_id and pres.resource_id=res.id and u.username=#{username})
+        as b WHERE a.code=b.code
 
     </select>
 

@@ -5,8 +5,10 @@ import com.springcloud.rcba.model.user.TUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface TUserMapper extends BaseMapper<TUser> {
 
-    CustomUserDetails loadCustomUserDetailsByUsername(String username);
+    List loadCustomUserDetailsByUsername(String username);
 }
