@@ -8,6 +8,8 @@ public class CustomUserDetails {
      * 用户名
      */
     private String username;
+
+    private String password;
     /**
      * 权限代码列表
      */
@@ -19,6 +21,14 @@ public class CustomUserDetails {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<String> getAuthorities() {

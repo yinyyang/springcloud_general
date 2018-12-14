@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.101:3306/auth?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/auth?useUnicode=true&characterEncoding=utf8
     username: auth
     password: auth,.
 server:
@@ -17,7 +17,17 @@ eureka:
       defaultZone: http://localhost:9000/eureka
     fetch-registry: true
     register-with-eureka: true
-#security:
-#  oauth2:
-#    resource:
-#      filter-order: 3
+ribbon:
+  ReadTimeout: 10000
+  SocketTimeout: 10000
+  eureka:
+    enabled: true
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120000

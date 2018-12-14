@@ -10,5 +10,7 @@ import java.util.List;
 @Repository
 public interface TUserMapper extends BaseMapper<TUser> {
 
-    List loadCustomUserDetailsByUsername(String username);
+    List<String> loadCustomUserDetailsByUsername(String username);
+
+    TUser loadUserByUsername(String username);
 }

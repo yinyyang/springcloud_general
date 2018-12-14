@@ -1,5 +1,6 @@
 package com.springcloud.rcba.service.user.impl;
 
+import com.netflix.discovery.util.StringUtil;
 import com.springcloud.rcba.model.user.CustomUserDetails;
 import com.springcloud.rcba.model.user.TUser;
 import com.springcloud.rcba.mapper.user.TUserMapper;
@@ -8,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -26,14 +28,20 @@ public class TUserServiceImpl extends ServiceImpl<TUserMapper, TUser> implements
     @Override
     public CustomUserDetails loadCustomUserDetailsByUsername(String username) {
         CustomUserDetails customUserDetails = new CustomUserDetails();
-        List<String> authorities = dao.loadCustomUserDetailsByUsername(username);
-        if (authorities.isEmpty()) {
-            return null;
-        } else {
-            customUserDetails.setUsername(username);
-            customUserDetails.setAuthorities(authorities);
-            return customUserDetails;
+        TUser user = dao.loadUserByUsername(username);
+        if (!StringUtils.isEmpty(user)) {
+            customUserDetails.setUsername(user.getUsername());
+            customUserDetails.setPassword(user.getPassword());
+            List<String> authorities = dao.loadCustomUserDetailsByUsername(username);
+            if (!authorities.isEmpty()) {
+                customUserDetails.setAuthorities(authorities);
+            }
         }
+        return customUserDetails;
+    }
+    @Override
+    public TUser loadUserByUsername(String username) {
+        return dao.loadUserByUsername(username) ;
     }
 
 }

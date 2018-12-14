@@ -48,7 +48,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 12000
+            timeoutInMilliseconds: 120000
 #proxy:
 #  auth:
 #    routes:

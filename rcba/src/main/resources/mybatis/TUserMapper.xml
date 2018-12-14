@@ -37,5 +37,16 @@
         as b WHERE a.code=b.code
 
     </select>
+    <select id="loadUserByUsername" resultType="com.springcloud.rcba.model.user.TUser">
+        select
+        username,
+        password,
+        email,
+        is_expired,
+        is_locked,
+        is_enabled
+        from t_user where username = #{username}
+
+    </select>
 
 </mapper>

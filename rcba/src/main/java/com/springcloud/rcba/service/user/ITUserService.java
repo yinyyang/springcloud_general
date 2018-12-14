@@ -10,4 +10,5 @@ import java.util.Map;
 public interface ITUserService extends IService<TUser> {
     public CustomUserDetails loadCustomUserDetailsByUsername(String username);
 
+    public TUser loadUserByUsername(String username);
 }

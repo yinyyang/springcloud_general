@@ -2,6 +2,7 @@ package com.springcloud.rcba.web.user;
 
 
 import com.springcloud.rcba.model.user.CustomUserDetails;
+import com.springcloud.rcba.model.user.TUser;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,4 +31,8 @@ public class TUserController {
         return service.loadCustomUserDetailsByUsername(username);
     }
 
+    @RequestMapping("/loadUserByUsername")
+    public TUser loadUserByUsername(String username) {
+        return service.loadUserByUsername(username);
+    }
 }

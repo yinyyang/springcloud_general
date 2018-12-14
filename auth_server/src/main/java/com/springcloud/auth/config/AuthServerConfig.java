@@ -43,9 +43,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     private DataSource datasource;
 
 
-
     @Autowired
-    private  AuthUserDetailsService userDetailsService;
+    private AuthUserDetailsService userDetailsService;
 
     public AuthServerConfig() {
         super();
@@ -62,7 +61,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-         clients.jdbc(datasource);
+        clients.jdbc(datasource);
 //        clients.inMemory()
 //                .withClient("clientId")
 //                .secret("{noop}123456")
@@ -79,10 +78,9 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .accessTokenConverter(jwtAccessTokenConverter())
 //                .tokenEnhancer(enhancerChain)
                 .reuseRefreshTokens(true)
-               .authenticationManager(authenticationManager)
-               .userDetailsService(userDetailsService);
+                .authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService);
     }
-
 
 
     @Bean

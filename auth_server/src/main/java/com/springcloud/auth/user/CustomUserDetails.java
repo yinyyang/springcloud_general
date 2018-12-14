@@ -1,4 +1,4 @@
-package com.springcloud.rcba.model.user;
+package com.springcloud.auth.user;
 
 import java.util.List;
 
