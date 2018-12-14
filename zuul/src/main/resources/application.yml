@@ -40,6 +40,15 @@ ribbon:
   SocketTimeout: 10000
   eureka:
     enabled: true
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000
 #proxy:
 #  auth:
 #    routes:

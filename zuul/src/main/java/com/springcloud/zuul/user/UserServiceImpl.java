@@ -1,6 +1,6 @@
 package com.springcloud.zuul.user;
 
-import com.springcloud.zuul.permission.Permission;
+import com.springcloud.zuul.feign.RcbaRemoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,13 +16,13 @@ import java.util.List;
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserDetailsService{
 
- @Resource
- private RcbaUserService rcbaUserService;
+ @Autowired
+ private RcbaRemoteService rcbaRemoteService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-       CustomUserDetails customUserDetails = rcbaUserService.loadUserByUsername(username);
+       CustomUserDetails customUserDetails = rcbaRemoteService.loadUserByUsername(username);
 
 
         if (customUserDetails.getAuthorities() != null) {
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserDetailsService{
                     grantedAuthorities.add(grantedAuthority);
                 }
             }
-            return new org.springframework.security.core.userdetails.User(username, null, grantedAuthorities) {
+            return new org.springframework.security.core.userdetails.User(username, "", grantedAuthorities) {
             };
         } else {
             throw new UsernameNotFoundException("admin: " + username + " do not exist!");

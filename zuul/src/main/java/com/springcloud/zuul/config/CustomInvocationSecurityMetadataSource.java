@@ -1,7 +1,8 @@
 package com.springcloud.zuul.config;
 
-import com.springcloud.zuul.permission.Permission;
+import com.springcloud.zuul.permission.CustomPermissionDetails;
 import com.springcloud.zuul.permission.PermissionService;
+import com.springcloud.zuul.user.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
@@ -29,10 +30,10 @@ public class CustomInvocationSecurityMetadataSource implements FilterInvocationS
         map = new HashMap<>();
         Collection<ConfigAttribute> array;
         ConfigAttribute cfg;
-        List<Permission> permissions = permissionService.findAll();
-        for (Permission permission : permissions) {
+        List<CustomPermissionDetails> permissions = permissionService.findAll();
+        for (CustomPermissionDetails permission : permissions) {
             array = new ArrayList<>();
-            cfg = new SecurityConfig(permission.getName());
+            cfg = new SecurityConfig(permission.getCode());
             //此处只添加了用户的名字，其实还可以添加更多权限的信息，例如请求方法到ConfigAttribute的集合中去。此处添加的信息将会作为MyAccessDecisionManager类的decide的第三个参数。
             array.add(cfg);
             //用权限的getUrl() 作为map的key，用ConfigAttribute的集合作为 value，

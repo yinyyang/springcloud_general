@@ -11,10 +11,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 
 @SpringBootApplication
-@EnableOAuth2Client
 @EnableZuulProxy
 @EnableEurekaClient
-@EnableFeignClients
 public class ZuulApplication {
 
     public static void main(String[] args) {

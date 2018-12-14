@@ -4,14 +4,20 @@
 
     <!-- general query mapping result -->
     <resultMap id="BaseResultMap" type="com.springcloud.rcba.model.permission.TPermission">
-        <id column="id" property="id" />
-        <result column="code" property="code" />
-        <result column="name" property="name" />
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="name" property="name"/>
     </resultMap>
 
     <!--  common query result column -->
     <sql id="Base_Column_List">
         id, code, name
     </sql>
+    <select id="loadAllCustomPermissionDetails"  resultType="com.springcloud.rcba.model.permission.CustomPermissionDetails">
+           select p.code,p.name,r.url
+          from t_permission  p, t_permission_resource pr,t_resource r
+           where p.id=pr.permission_id and pr.resource_id=r.id
+
+    </select>
 
 </mapper>

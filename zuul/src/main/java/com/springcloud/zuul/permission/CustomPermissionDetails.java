@@ -1,12 +1,26 @@
 package com.springcloud.zuul.permission;
 
-public class Permission {
+public class CustomPermissionDetails {
+
+
+    private String name;
+    private String code;
+    private String url;
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getUrl() {
@@ -17,6 +31,5 @@ public class Permission {
         this.url = url;
     }
 
-    private String name;
-    private String url;
+
 }

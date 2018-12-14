@@ -43,11 +43,13 @@ public class Oauth2JwtTokenAuthenticationProcessingFilter extends OncePerRequest
         if (token != null) {
             Jwt jwt = JwtHelper.decode(token);
             Map mapTypes = JSON.parseObject(jwt.getClaims());
-            //String username = mapTypes.get("user_name").toString();;
-            UserDetails userDetails = userService.loadUserByUsername("test");
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            Object username = mapTypes.get("user_name");
+            if(username !=null) {
+                UserDetails userDetails = userService.loadUserByUsername((String)username);
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
         }
         filterChain.doFilter(request, response);
     }
