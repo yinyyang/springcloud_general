@@ -18,7 +18,7 @@ import com.springcloud.rcba.service.resource.ITResourceService;
 public class TResourceController {
     private static Logger logger = LoggerFactory.getLogger(TResourceController.class);
 
-	@Autowired
+    @Autowired
     private ITResourceService service;
 
 

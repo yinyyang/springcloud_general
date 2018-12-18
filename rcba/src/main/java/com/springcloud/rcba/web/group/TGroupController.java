@@ -18,7 +18,7 @@ import com.springcloud.rcba.service.group.ITGroupService;
 public class TGroupController {
     private static Logger logger = LoggerFactory.getLogger(TGroupController.class);
 
-	@Autowired
+    @Autowired
     private ITGroupService service;
 
 

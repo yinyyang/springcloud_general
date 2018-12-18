@@ -4,9 +4,9 @@
 
     <!-- general query mapping result -->
     <resultMap id="BaseResultMap" type="com.springcloud.rcba.model.group.TGroup">
-        <id column="id" property="id" />
-        <result column="code" property="code" />
-        <result column="name" property="name" />
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="name" property="name"/>
     </resultMap>
 
     <!--  common query result column -->

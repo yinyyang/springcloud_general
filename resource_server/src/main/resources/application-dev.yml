@@ -20,11 +20,11 @@ spring:
 
 
 server:
-  port: 9060
+  port: 9090
   servlet:
     session:
       cookie:
-        name: RCBA_SESSIONID
+        name: RESOURCE_SESSIONID
 
 eureka:
   client:
@@ -35,4 +35,4 @@ eureka:
 
 mybatis-plus:
   mapper-locations: classpath:mybatis/*.xml
-  type-aliases-package: com.springcloud.rcba.model
+  type-aliases-package: com.springcloud.resource.model

@@ -3,7 +3,9 @@ package com.springcloud.rcba.model.group;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 
 
@@ -28,6 +30,7 @@ public class TGroup implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getCode() {
         return code;
     }
@@ -35,6 +38,7 @@ public class TGroup implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getName() {
         return name;
     }
@@ -46,9 +50,9 @@ public class TGroup implements Serializable {
     @Override
     public String toString() {
         return "TGroup{" +
-        "id=" + id +
-        ", code=" + code +
-        ", name=" + name +
-        "}";
+                "id=" + id +
+                ", code=" + code +
+                ", name=" + name +
+                "}";
     }
 }

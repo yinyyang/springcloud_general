@@ -1,19 +1,5 @@
 spring:
   application:
     name: resource-server
-  aop:
-    proxy-target-class: true
-server:
-  port: 9050
-  servlet:
-    session:
-      cookie:
-        name: RESOURCE_SESSIONID
-
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:9000/eureka
-
+  profiles:
+    active: dev

@@ -2,9 +2,13 @@ package com.springcloud.rcba.model.role;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 
 
@@ -41,6 +45,7 @@ public class TRole implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getCode() {
         return code;
     }
@@ -48,6 +53,7 @@ public class TRole implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getName() {
         return name;
     }
@@ -55,6 +61,7 @@ public class TRole implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
     public LocalDateTime getCreateTime() {
         return createTime;
     }
@@ -62,6 +69,7 @@ public class TRole implements Serializable {
     public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
+
     public Long getCreateUser() {
         return createUser;
     }
@@ -69,6 +77,7 @@ public class TRole implements Serializable {
     public void setCreateUser(Long createUser) {
         this.createUser = createUser;
     }
+
     public LocalDateTime getUpdateTime() {
         return updateTime;
     }
@@ -76,6 +85,7 @@ public class TRole implements Serializable {
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
+
     public Long getUpdateUser() {
         return updateUser;
     }
@@ -87,13 +97,13 @@ public class TRole implements Serializable {
     @Override
     public String toString() {
         return "TRole{" +
-        "id=" + id +
-        ", code=" + code +
-        ", name=" + name +
-        ", createTime=" + createTime +
-        ", createUser=" + createUser +
-        ", updateTime=" + updateTime +
-        ", updateUser=" + updateUser +
-        "}";
+                "id=" + id +
+                ", code=" + code +
+                ", name=" + name +
+                ", createTime=" + createTime +
+                ", createUser=" + createUser +
+                ", updateTime=" + updateTime +
+                ", updateUser=" + updateUser +
+                "}";
     }
 }

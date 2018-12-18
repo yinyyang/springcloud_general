@@ -4,10 +4,10 @@
 
     <!-- general query mapping result -->
     <resultMap id="BaseResultMap" type="com.springcloud.rcba.model.resource.TResource">
-        <id column="id" property="id" />
-        <result column="code" property="code" />
-        <result column="name" property="name" />
-        <result column="url" property="url" />
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="name" property="name"/>
+        <result column="url" property="url"/>
     </resultMap>
 
     <!--  common query result column -->

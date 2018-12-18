@@ -39,7 +39,8 @@ public class Oauth2JwtTokenAuthenticationProcessingFilter extends OncePerRequest
         ServletContext sc = request.getServletContext();
         WebApplicationContext webCtx = WebApplicationContextUtils.getWebApplicationContext(sc);
         UserServiceImpl userService = (UserServiceImpl) webCtx.getBean("userServiceImpl");
-        String token = request.getParameter("access_token");
+        String  token = request.getHeader("accessToken");
+        String tokenType  =  request.getHeader("tokenType");
         if (token != null) {
             Jwt jwt = JwtHelper.decode(token);
             Map mapTypes = JSON.parseObject(jwt.getClaims());

@@ -1,1 +1,0 @@
-INSERT INTO `t_user` VALUES (1, 'test', '$2a$10$ZbfrU6E8LuTjsw1pvfnr9.l3JcwWF2IMhuJNknEYUoIzTp4sXkeQe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);

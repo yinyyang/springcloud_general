@@ -3,7 +3,9 @@ package com.springcloud.rcba.model.resource;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 
 
@@ -31,6 +33,7 @@ public class TResource implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getCode() {
         return code;
     }
@@ -38,6 +41,7 @@ public class TResource implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getName() {
         return name;
     }
@@ -45,6 +49,7 @@ public class TResource implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getUrl() {
         return url;
     }
@@ -56,10 +61,10 @@ public class TResource implements Serializable {
     @Override
     public String toString() {
         return "TResource{" +
-        "id=" + id +
-        ", code=" + code +
-        ", name=" + name +
-        ", url=" + url +
-        "}";
+                "id=" + id +
+                ", code=" + code +
+                ", name=" + name +
+                ", url=" + url +
+                "}";
     }
 }

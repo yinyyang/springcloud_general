@@ -18,7 +18,7 @@ import com.springcloud.rcba.service.role.ITRoleService;
 public class TRoleController {
     private static Logger logger = LoggerFactory.getLogger(TRoleController.class);
 
-	@Autowired
+    @Autowired
     private ITRoleService service;
 
 
