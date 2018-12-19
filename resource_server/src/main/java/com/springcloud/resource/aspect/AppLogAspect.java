@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.Enumeration;
 
 @Component
-@Order(-2)
+@Order(-5)
 @Aspect
 public class AppLogAspect {
     private Logger LOGGER = LoggerFactory.getLogger(AppLogAspect.class);

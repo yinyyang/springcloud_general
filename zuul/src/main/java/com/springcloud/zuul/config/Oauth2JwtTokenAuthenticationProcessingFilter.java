@@ -39,6 +39,7 @@ public class Oauth2JwtTokenAuthenticationProcessingFilter extends OncePerRequest
         ServletContext sc = request.getServletContext();
         WebApplicationContext webCtx = WebApplicationContextUtils.getWebApplicationContext(sc);
         UserServiceImpl userService = (UserServiceImpl) webCtx.getBean("userServiceImpl");
+        String authorization = request.getHeader("Authorization");
         String  token = request.getHeader("accessToken");
         String tokenType  =  request.getHeader("tokenType");
         if (token != null) {
