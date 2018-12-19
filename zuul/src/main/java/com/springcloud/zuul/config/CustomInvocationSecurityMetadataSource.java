@@ -2,7 +2,6 @@ package com.springcloud.zuul.config;
 
 import com.springcloud.zuul.permission.CustomPermissionDetails;
 import com.springcloud.zuul.permission.PermissionService;
-import com.springcloud.zuul.user.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;

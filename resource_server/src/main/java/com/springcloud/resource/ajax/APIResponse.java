@@ -6,7 +6,7 @@ public class APIResponse <T> {
 
     public static final String FAIL = "fail";
 
-    private String code;
+    private Object code;
     private T data;
     private String msg;
 
@@ -14,7 +14,7 @@ public class APIResponse <T> {
 
     }
 
-    public APIResponse(String code){
+    public APIResponse(Object code){
         this.code = code;
     }
 
@@ -44,9 +44,10 @@ public class APIResponse <T> {
         return new APIResponse(FAIL, msg);
     }
 
-    public static APIResponse widthCode(String errorCode) {
-        return new APIResponse(errorCode);
+    public static APIResponse withCode(Object code) {
+        return new APIResponse(code);
     }
+
 
     public String getMsg() {
         return msg;
@@ -56,11 +57,11 @@ public class APIResponse <T> {
         this.msg = msg;
     }
 
-    public String getCode() {
+    public Object getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Object code) {
         this.code = code;
     }
 

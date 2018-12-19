@@ -1,6 +1,6 @@
 package com.springcloud.zuul.config;
 
-import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springcloud.zuul.user.UserServiceImpl;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,18 +21,6 @@ import java.io.IOException;
 import java.util.Map;
 
 public class Oauth2JwtTokenAuthenticationProcessingFilter extends OncePerRequestFilter {
-    private UserServiceImpl  userService;
-
-
-//    public void init(FilterConfig filterConfig) throws ServletException{
-//         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
-//                 filterConfig.getServletContext());
-//        ServletContext sc = this.getServletContext();
-//        XmlWebApplicationContext cxt = (XmlWebApplicationContext) WebApplicationContextUtils.getWebApplicationContext(sc);
-//
-//        if(cxt != null && cxt.getBean("userServiceImpl") != null && userService == null)
-//            userService = (UserServiceImpl) cxt.getBean("userServiceImpl");
-//    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -44,7 +32,8 @@ public class Oauth2JwtTokenAuthenticationProcessingFilter extends OncePerRequest
         String tokenType  =  request.getHeader("tokenType");
         if (token != null) {
             Jwt jwt = JwtHelper.decode(token);
-            Map mapTypes = JSON.parseObject(jwt.getClaims());
+            ObjectMapper mapper = new ObjectMapper();
+            Map mapTypes = mapper.readValue(jwt.getClaims(),Map.class);
             Object username = mapTypes.get("user_name");
             if(username !=null) {
                 UserDetails userDetails = userService.loadUserByUsername((String)username);
