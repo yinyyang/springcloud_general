@@ -35,6 +35,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
                 .and()
                 .authorizeRequests()
+                .antMatchers("/swagger-ui.html","/webjars/**","/swagger-resources/**","/v2/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

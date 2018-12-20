@@ -49,7 +49,7 @@ public class ExceptionController implements ErrorController {
     public APIResponse error(HttpServletRequest request) {
         Map<String, Object> body = getErrorAttributes(request, isIncludeStackTrace(request, MediaType.ALL));
         HttpStatus status = getStatus(request);
-        return APIResponse.fail(body.get("message").toString());
+        return APIResponse.fail(body.get("error").toString());
     }
 
 
