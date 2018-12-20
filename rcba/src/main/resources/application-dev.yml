@@ -11,6 +11,9 @@ spring:
       initial-size: 5
       max-wait-millis: 10000
       validation-query: SELECT 1 FROM DUAL
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 
 
 server:
