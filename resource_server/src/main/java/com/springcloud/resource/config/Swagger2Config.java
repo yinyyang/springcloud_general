@@ -30,10 +30,10 @@ public class Swagger2Config implements WebMvcConfigurer {
         //添加登录权限验证,使用Swagger2 接口之前需要获取token
         ParameterBuilder ticketPar = new ParameterBuilder();
         List<Parameter> pars = new ArrayList<Parameter>();
-        ticketPar.name("Authorization").description("登录校验")//name表示名称，description表示描述
+        ticketPar.name("Authorization").description("token校验")
                 .modelRef(new ModelRef("string")).parameterType("header")
-                .required(false).defaultValue("bearer ").build();//required表示是否必填，defaultvalue表示默认值
-        pars.add(ticketPar.build());//添加完此处一定要把下边的带***的也加上否则不生效
+                .required(false).defaultValue("bearer ").build();
+        pars.add(ticketPar.build());
 
 
         return new Docket(DocumentationType.SWAGGER_2).select()
