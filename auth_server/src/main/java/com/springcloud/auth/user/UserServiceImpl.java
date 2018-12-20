@@ -1,4 +1,4 @@
-package com.springcloud.auth.config;
+package com.springcloud.auth.user;
 
 import com.springcloud.auth.feign.RcbaRemoteService;
 import com.springcloud.auth.user.CustomUserDetails;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AuthUserDetailsService   implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService {
 
     @Autowired
     private RcbaRemoteService rcbaRemoteService;
