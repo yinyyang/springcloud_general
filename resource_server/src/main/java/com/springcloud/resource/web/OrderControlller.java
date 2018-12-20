@@ -1,5 +1,6 @@
 package com.springcloud.resource.web;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,8 @@ public class OrderControlller {
     }
 
     @RequestMapping(value = "date",method = RequestMethod.POST)
-    public String date(Date date) throws Exception {
+    public String date(@RequestBody  Date date) throws Exception {
 
-        return "order:" + date;
+        return "date:" + date;
     }
 }
