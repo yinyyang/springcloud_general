@@ -3,7 +3,6 @@ package com.springcloud.auth.config;
 import com.springcloud.auth.feign.RcbaRemoteService;
 import com.springcloud.auth.user.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
