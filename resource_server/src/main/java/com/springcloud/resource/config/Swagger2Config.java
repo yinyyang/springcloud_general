@@ -36,13 +36,20 @@ public class Swagger2Config implements WebMvcConfigurer {
         pars.add(ticketPar.build());
 
 
-        return new Docket(DocumentationType.SWAGGER_2).select()
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
                 .apis(RequestHandlerSelectors.basePackage("com.springcloud.resource.web"))
                 .paths(PathSelectors.any())
                 .build()
                 .globalOperationParameters(pars);
     }
-
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("resource interface")
+                .version("1.0")
+                .build();
+    }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
