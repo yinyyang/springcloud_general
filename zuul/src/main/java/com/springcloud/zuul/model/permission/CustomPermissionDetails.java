@@ -1,4 +1,4 @@
-package com.springcloud.zuul.permission;
+package com.springcloud.zuul.model.permission;
 
 public class CustomPermissionDetails {
 

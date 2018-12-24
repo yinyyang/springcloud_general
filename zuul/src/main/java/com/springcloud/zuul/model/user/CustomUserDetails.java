@@ -1,4 +1,4 @@
-package com.springcloud.zuul.user;
+package com.springcloud.zuul.model.user;
 
 import java.util.List;
 

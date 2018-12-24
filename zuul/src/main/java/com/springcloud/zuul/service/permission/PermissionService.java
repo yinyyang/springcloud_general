@@ -1,7 +1,7 @@
-package com.springcloud.zuul.permission;
+package com.springcloud.zuul.service.permission;
 
 import com.springcloud.zuul.feign.RcbaRemoteService;
-import com.springcloud.zuul.user.CustomUserDetails;
+import com.springcloud.zuul.model.permission.CustomPermissionDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.springcloud.zuul.config;
+package com.springcloud.zuul.authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.springcloud.zuul.user.UserServiceImpl;
+import com.springcloud.zuul.service.user.UserServiceImpl;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,9 +9,7 @@ import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.*;

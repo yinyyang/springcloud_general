@@ -1,6 +1,7 @@
-package com.springcloud.zuul.user;
+package com.springcloud.zuul.service.user;
 
 import com.springcloud.zuul.feign.RcbaRemoteService;
+import com.springcloud.zuul.model.user.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 

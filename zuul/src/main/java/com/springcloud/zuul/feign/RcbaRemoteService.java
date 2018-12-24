@@ -1,8 +1,8 @@
 package com.springcloud.zuul.feign;
 
 import com.springcloud.zuul.config.FeignConfig;
-import com.springcloud.zuul.permission.CustomPermissionDetails;
-import com.springcloud.zuul.user.CustomUserDetails;
+import com.springcloud.zuul.model.permission.CustomPermissionDetails;
+import com.springcloud.zuul.model.user.CustomUserDetails;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

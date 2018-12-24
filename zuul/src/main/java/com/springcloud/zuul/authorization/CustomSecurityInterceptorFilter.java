@@ -1,11 +1,9 @@
-package com.springcloud.zuul.config;
+package com.springcloud.zuul.authorization;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.SecurityMetadataSource;
 import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
 import org.springframework.security.access.intercept.InterceptorStatusToken;
-import org.springframework.security.jwt.Jwt;
-import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.stereotype.Service;
@@ -15,7 +13,7 @@ import java.io.IOException;
 
 
 @Service
-public class CustomFilterSecurityInterceptor extends AbstractSecurityInterceptor implements Filter {
+public class CustomSecurityInterceptorFilter extends AbstractSecurityInterceptor implements Filter {
 
     @Autowired
     private FilterInvocationSecurityMetadataSource securityMetadataSource;
