@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auth?useUnicode=true&characterEncoding=utf8
+    username: auth
+    password: auth,.
+    type: org.apache.commons.dbcp2.BasicDataSource
+    dbcp2:
+      max-idle: 10
+      min-idle: 5
+      initial-size: 5
+      max-wait-millis: 10000
+      validation-query: SELECT 1 FROM DUAL
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+      file-size-threshold: 1MB
+      location: /
+
+server:
+  port: 9099
+  servlet:
+    session:
+      cookie:
+        name: UPLOAD_SESSIONID
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka
+    fetch-registry: true
+    register-with-eureka: true
+
+mybatis-plus:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: com.springcloud.sfp.model

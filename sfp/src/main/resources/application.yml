@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: sfp
+  profiles:
+    active: dev

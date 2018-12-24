@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: upload
+  profiles:
+    active: dev
