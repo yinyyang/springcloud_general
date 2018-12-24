@@ -1,5 +1,6 @@
 package com.springcloud.upload.web.photo;
 
+import com.springcloud.upload.ajax.APIResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,15 +16,15 @@ import java.nio.charset.Charset;
 public class PhotoController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public String upload(@RequestParam("photo") MultipartFile photo) throws IOException {
+    public APIResponse upload(@RequestParam("photo") MultipartFile photo) throws IOException {
         if (photo.isEmpty()) {
-            return "photo is null!";
+            return APIResponse.fail("file is null!");
         }
         String fileName = photo.getOriginalFilename();
         File dest = new File(fileName);
         photo.transferTo(dest);
 
-        return "upload successfully!";
+        return APIResponse.success();
     }
 
 }
