@@ -20,8 +20,7 @@ spring:
       max-file-size: 20MB
       max-request-size: 20MB
       file-size-threshold: 1MB
-      location: /
-
+      location: D:/test_uploads/
 server:
   port: 9099
   servlet:

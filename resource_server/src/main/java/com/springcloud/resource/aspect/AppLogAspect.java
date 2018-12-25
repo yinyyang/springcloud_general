@@ -14,9 +14,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.lang.reflect.Array;
 import java.lang.reflect.Method;
-import java.util.Date;
 import java.util.Enumeration;
 
 @Component
@@ -60,10 +59,19 @@ public class AppLogAspect {
 
         if(contentType != null && contentType.indexOf("multipart/form-data") != -1){
             Object [] o = joinPoint.getArgs();
-            MultipartFile file = (MultipartFile)o[0];
-            LOGGER.info(file.getOriginalFilename());
-            LOGGER.info("Params: " + o[0]);
-            reqParam = file.getOriginalFilename();
+            if(o[0] instanceof Array){
+                MultipartFile files [] = (MultipartFile[]) o[0];
+                for(MultipartFile file:files) {
+                    LOGGER.info(file.getOriginalFilename());
+                    LOGGER.info("Params: " + o[0]);
+                    reqParam = file.getOriginalFilename();
+                }
+            } else{
+                MultipartFile file  = (MultipartFile) o[0];
+                LOGGER.info(file.getOriginalFilename());
+                LOGGER.info("Params: " + o[0]);
+                reqParam = file.getOriginalFilename();
+            }
         }else{
             Object [] o = joinPoint.getArgs();
             if(o != null && o.length > 0){
