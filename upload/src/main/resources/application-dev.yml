@@ -37,4 +37,4 @@ eureka:
 
 mybatis-plus:
   mapper-locations: classpath:mybatis/*.xml
-  type-aliases-package: com.springcloud.rcba.model
+  type-aliases-package: com.springcloud.upload.model
