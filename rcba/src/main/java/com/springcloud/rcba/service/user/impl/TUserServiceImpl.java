@@ -1,6 +1,5 @@
 package com.springcloud.rcba.service.user.impl;
 
-import com.netflix.discovery.util.StringUtil;
 import com.springcloud.rcba.model.user.CustomUserDetails;
 import com.springcloud.rcba.model.user.TUser;
 import com.springcloud.rcba.mapper.user.TUserMapper;
@@ -10,12 +9,9 @@ import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 @Service

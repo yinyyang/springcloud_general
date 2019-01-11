@@ -1,7 +1,7 @@
-package com.springcloud.sfp.exception;
+package com.springcloud.rcba.exception;
 
 
-import com.springcloud.sfp.ajax.APIResponse;
+import com.springcloud.rcba.ajax.APIResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorProperties;
 import org.springframework.boot.autoconfigure.web.ServerProperties;

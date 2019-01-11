@@ -1,4 +1,4 @@
-package com.springcloud.sfp.config;
+package com.springcloud.rcba.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,7 +38,7 @@ public class Swagger2Config implements WebMvcConfigurer {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.springcloud.sfp.web"))
+                .apis(RequestHandlerSelectors.basePackage("com.springcloud.rcba.web"))
                 .paths(PathSelectors.any())
                 .build()
                 .globalOperationParameters(pars);
@@ -46,7 +46,7 @@ public class Swagger2Config implements WebMvcConfigurer {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("sfp interface")
+                .title("rcba interface")
                 .version("1.0")
                 .build();
     }

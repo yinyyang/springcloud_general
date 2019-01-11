@@ -1,5 +1,5 @@
 spring:
   application:
-    name: sfp
+    name: rcba
   profiles:
     active: dev

@@ -1,4 +1,4 @@
-package com.springcloud.sfp.model.test;
+package com.springcloud.rcba.model.test;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

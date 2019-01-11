@@ -1,9 +1,9 @@
-package com.springcloud.sfp.service.test.impl;
+package com.springcloud.rcba.service.test.impl;
 
-import com.springcloud.sfp.helper.AssertHelper;
-import com.springcloud.sfp.model.test.TTest;
-import com.springcloud.sfp.mapper.test.TTestMapper;
-import com.springcloud.sfp.service.test.ITTestService;
+import com.springcloud.rcba.helper.AssertHelper;
+import com.springcloud.rcba.model.test.TTest;
+import com.springcloud.rcba.mapper.test.TTestMapper;
+import com.springcloud.rcba.service.test.ITTestService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;

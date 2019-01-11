@@ -1,4 +1,4 @@
-package com.springcloud.sfp.aspect;
+package com.springcloud.rcba.aspect;
 
 import io.swagger.annotations.ApiOperation;
 import org.aspectj.lang.JoinPoint;
@@ -28,7 +28,7 @@ public class AppLogAspect {
     @Autowired
     private Environment env;
 
-    @Pointcut("execution(* com.springcloud.sfp.web..*(..))")
+    @Pointcut("execution(* com.springcloud.rcba.web..*(..))")
     public void pointcut() {
     }
 

@@ -1,4 +1,4 @@
-package com.springcloud.sfp.config;
+package com.springcloud.rcba.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;

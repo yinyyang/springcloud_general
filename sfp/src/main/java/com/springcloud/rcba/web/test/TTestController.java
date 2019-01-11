@@ -1,11 +1,11 @@
-package com.springcloud.sfp.web.test;
+package com.springcloud.rcba.web.test;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
-import com.springcloud.sfp.ajax.APIResponse;
-import com.springcloud.sfp.helper.AssertHelper;
-import com.springcloud.sfp.model.test.TTest;
+import com.springcloud.rcba.ajax.APIResponse;
+import com.springcloud.rcba.helper.AssertHelper;
+import com.springcloud.rcba.model.test.TTest;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.springcloud.sfp.service.test.ITTestService;
+import com.springcloud.rcba.service.test.ITTestService;
 
 import java.util.List;
 import java.util.Map;

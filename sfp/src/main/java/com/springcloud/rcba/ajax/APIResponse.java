@@ -1,4 +1,4 @@
-package com.springcloud.sfp.ajax;
+package com.springcloud.rcba.ajax;
 
 public class APIResponse <T> {
 

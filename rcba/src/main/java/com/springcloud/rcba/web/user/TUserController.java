@@ -11,9 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.springcloud.rcba.service.user.ITUserService;
 
-import java.util.List;
-import java.util.Map;
-
 
 // swagger address
 // http://localhost:8080/swagger-ui.html
